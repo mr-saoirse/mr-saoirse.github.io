@@ -1,0 +1,13 @@
+---
+layout: post
+title:  "Scope of experiments"
+date:   2020-11-25 17:49:28 -0500
+categories: overview
+---
+
+One fun thing about logging experiments in technology is to track one's possibly consistent or possibly changing areas of interest. I am interested in many things in the arts and sciences and there is no single field, or school of thought that I am particularly focusing on over time. Well maybe that is a lie. There are some things that seem to always remain important to me whether they are fundamentals of truth and meaning or some particular lens of reality that I find interesting such as complex systems thinking. As an engineer, focus on automation and tools are a constant. I am always interested in the revolutions brought about by human tools and how they can augment our innate abilities to do things faster and more intelligently than we otherwise would.
+
+Currently one theme that brings together promises for enhanced tools, while also being rooted in core ideas of meaning and truth, identity and our place in the world is language. When thinking about tools and automation, some refer to current trends in the integration of technology as _Industry 4.0_. What is exciting about this is not just the technology _per se_ but the focus on ideas about alternative economics with considerations related to sustainability and global equality. So there is a great philosophical depth to how we can think about technology, a backdrop to our direct tinkering.
+
+And so I will take a random walk though some tech topics related to AI, process and flow optimization, _I 4.0_ trends and tech, service provisioning in the cloud, algorithms. Each of the posts will be sparse notes that will be use in richer content elsewhere. So think of this blog as a sketchbook.
+
