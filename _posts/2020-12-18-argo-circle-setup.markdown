@@ -3,6 +3,7 @@ layout: post
 title:  "Circle and Argo CD setup"
 date:   2020-12-17 17:49:28 -0500
 categories: DevOps
+summary: Brief
 ---
 
 # Overview
@@ -79,11 +80,12 @@ argocd app set APP_NAME --sync-policy automated
 ## TODO when project gets fleshed out more
 
 - Docker image is built and use by Argo
-- Play around more with my K8s cluster with load balancing etc. Currently im setup and tearing down which is time consuming
+- Play around more with my K8s cluster with load balancing etc. Currently im setup and tearing down which is time consuming but want to make a full prod ready cluster - [inspiration example][weave-prod-guide]
 - Work out the proper development cycle for branches, PRs, etc.
-
+- Spend more time with credentials with git
 
 [tutorial]: https://www.digitalocean.com/community/tutorials/webinar-series-gitops-tool-sets-on-kubernetes-with-circleci-and-argo-cd
 [python-circle]: https://circleci.com/docs/2.0/language-python/
 [gitops-weave]: https://www.weave.works/blog/gitops-operations-by-pull-request
 [argo-start]: https://argoproj.github.io/argo-cd/getting_started/
+[weave-prod-guide]: https://www.weave.works/blog/provisioning-lifecycle-production-ready-kubernetes-cluster/
