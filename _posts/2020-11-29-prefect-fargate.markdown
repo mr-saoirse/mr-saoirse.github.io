@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Prefect with Fargate"
-date:   2020-11-25 17:49:28 -0500
+date:   2020-11-29 17:49:28 -0500
 categories: overview
 ---
 
@@ -15,9 +15,14 @@ The [instructions to use AWS CLI to connect ECR][aws-ecr-guide] require a contai
 kubectl config current-context
 ```
 
+To check the config or kubectl 
+```bash
+ kubectl config view --minify
+```
+
 With a user having permission `AWSCloudFormationFullAccess` you can create a Fargate k8s cluster with (eksctl must be installed)
 ```bash
-eksctl create cluster --name fargate-eks --region  <YOUR_AWS_REGION> --fargate
+eksctl create cluster --name fargate-eks --region  us-east-1 --fargate
 #e.g. eksctl create cluster --name fargate-eks --region  us-east-1 --fargate
 ```
 

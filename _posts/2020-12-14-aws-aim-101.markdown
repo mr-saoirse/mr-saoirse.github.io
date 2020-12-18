@@ -1,0 +1,39 @@
+---
+layout: post
+title:  "AWS IAM 101"
+date:   2020-12-14 17:49:28 -0500
+categories: IaC
+---
+
+# Overview
+Mostly following the advice in [tutorial][tutorial] I created a new account with root and MFA and no keys, added an admin group and a user to it and a dev group and a user to it. The Dev has no web console access the others do with MFA.
+
+The Dev group started with at least S3 and EKS Cluster permissions. A hack I used to allow dev to create a cluster was to give dev user (not group) admin access. The permissions missing where at least an inability to query availability zones. Rather than fine grained access for occasionally creating a cluster i will toggle this for now but it is not satisfying.
+
+Should look into rotating key policy for the dev user.
+
+I was able to list buckets with `aws s3api list-buckets` and create and delete a cluster using `eksctl`. In reality i want to use terraform to do this. I have some instructions and scripts for terraform...
+
+There was a connection refused related to kube config so we need to configure that...
+
+Check this and follow [these steps][aws-kube-auth-setup] if there is a problem
+
+```bash
+kubectl describe configmap -n kube-system aws-auth
+```
+
+I fetched the sample yaml config from the guide i.e. 'these steps' and created a role in AWS console vai wizard and choosing the EKS service and EKS cluster role. I then took the Role ARN if from the resulting role and added to the auth file downloaded as instructed in 'these steps'.
+
+Then setting up kubectl and keeping in mind these [troubleshooting steps][kube-trouble] and [other troubles][kube-common-errors]
+
+```bash
+kubectl apply -f ./saws-auth-cm.yaml
+```
+
+I went back to my terraform tutorial with my fresh account and it seemed to do something - at first i needed to delete all my terra state because there was some weird issue with kube system and it seemed to be trying to hit some local thing... anyway, it at least whirred away doing AWS stuff for awhile. Here is some [inspiration][terraform-trouble] about how to troubleshoot terraform bits.
+
+[tutorial]: https://linuxsecurityblog.com/2019/12/20/configuring-your-iam-securely-on-aws/
+[aws-kube-auth-setup]: https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html
+[kube-trouble]: https://docs.aws.amazon.com/eks/latest/userguide/troubleshooting.html#unauthorized
+[kube-common-errors]: https://medium.com/pablo-perez/common-errors-when-setting-up-eks-for-the-first-time-a43cbf989a2e
+[terraform-trouble]: https://github.com/terraform-aws-modules/terraform-aws-eks/issues/978
